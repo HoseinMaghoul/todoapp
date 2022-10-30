@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+<div class="card">
+   
+    <div class="card-body">
+      <h5 class="card-title">{{ todo.title }}</h5>
+      <p class="card-text">{{ todo.description }}</p>
+      <div class="col-md-12 mt-5 "> 
+        <p class="text-light">{{todo.date}} </p>
+    </div>
+    <div class="col-md-12 mt-5 "> 
+        <p class="text-light">{{todo.due_time }} </p>
+    </div>
+     
+      <form action="" method="post" href="{{ todolist.get_absolute_url }}">
+        {% csrf_token %}
+    {{ form }}
+        <input type="submit" class="btn btn-primary" value="Edit">
+    </form>
+
+    </div>
+  </div>
+
+
+{% endblock %}

@@ -1,0 +1,162 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+    {% for todo in todos %}
+
+    <!-- <div class="card">
+       
+        <div class="card-body">
+          <h5 class="card-title">{{ todo.title }}</h5>
+          <label for="description">{{ todo.description }}</label>
+          <input type="textbox" id="description" placeholder="What do you need to do?" name="description">
+          <input type="date" id="dueDate" class="taskDate" name="date">
+          <label for="dueDate">Due Date</label>
+          <div class="row">
+            <button class="taskAdd" name="taskAdd" type="submit"><i class="fa fa-plus icon"></i>Add task</button>
+            <button class="taskDelete" name="taskDelete" formnovalidate="" type="submit" onclick="$('input#sublist').click();"><i class="fa fa-trash-o icon"></i>Delete Tasks</button>
+        </div>
+          <a href="#" class="btn btn-primary">Edit</a>
+          <a href="{% url 'todolist:todo' todo.id %}" class="btn btn-info">Show More</a>
+          
+        </div>
+      </div> -->
+
+
+
+      <section id=contact class="bg-light py-5">
+        <div class="container ">
+            <div class="row">
+                <div class="col-lg-12">
+                  <label for="title">Title:</label>
+                  <input type="text" value="{{ todo.title }}">
+                    
+                    <form action="">
+                        <div class="input-group input-group-lg mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" >
+                                    <i class="fa fa-user"></i>
+                                </span>
+                            </div>
+                            <textarea  class="form-control" row="5" placeholder="Message">{{ todo.description }}</textarea>
+                        </div>
+                        <strong class="taskDate"><i class="fa fa-calendar"></i>{{ todo.date }} - {{ todo.due_date }}</strong>
+                        <a href="{% url 'todolist:edit' todo.id %}" class="btn btn-primary">Edit</a>
+                        <a href="{% url 'todolist:add_todo' %}" class="btn btn-primary">Add</a>
+                        <a href="{% url 'todolist:todo' todo.id %}" class="btn btn-info">Show More</a>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    
+    </section>
+
+
+
+
+        
+        
+    {% endfor %}    
+
+    {% endblock %}
+    
+
+<!-- 
+    <div django-app="TaskManager">        
+      <div class="container">
+              <div class="content">
+              <h1>TodoApp</h1>
+              <p class="tagline">a Django todo app</p>
+              <form action="" method="post">
+              {% csrf_token %} 
+                  <div class="inputContainer">
+                      <input type="text" id="description" class="taskName" placeholder="What do you need to do?" name="description" required>
+                      <label for="description">Description</label>
+                  </div>
+                  <div class="inputContainer half last">
+                      <i class="fa fa-caret-down selectArrow"></i>
+                      <select id="category" class="taskCategory" name="category_select">
+                      <option class="disabled" value="">Choose a category</option>
+                      {% for category in categories %}
+                          <option class="" value="{{ category.name }}" name="{{ category.name }}">{{ category.name }}</option>
+                      {% endfor %}
+                      </select>
+                      <label for="category">Category</label>
+                  </div>
+                  <div class="inputContainer half last right">
+                      <input type="date" id="dueDate" class="taskDate" name="date">
+                      <label for="dueDate">Due Date</label>
+                  </div>
+                  <div class="row">
+                      <button class="taskAdd" name="taskAdd" type="submit"><i class="fa fa-plus icon"></i>Add task</button>
+                      <button class="taskDelete" name="taskDelete" formnovalidate="" type="submit" onclick="$('input#sublist').click();"><i class="fa fa-trash-o icon"></i>Delete Tasks</button>
+                  </div>
+              <ul class="taskList">
+              {% for todo in todos %} 
+                  <li class="taskItem">
+                      <input type="checkbox" class="taskCheckbox" name="checkedbox" id="{{ todo.id }}" value="{{ todo.id }}">
+                      <label for="{{ todo.id }}"><span class="complete-">{{ todo.title }}</span></label>
+                      <span class="category-{{ todo.category }}">{{ todo.category }}</span>
+                      <strong class="taskDate"><i class="fa fa-calendar"></i>{{ todo.created }} - {{ todo.due_date }}</strong>
+                  </li>
+              {% endfor %}
+              </ul>
+              </form>
+              </div>
+   </div>
+  </div> -->
+
+
+
+ 
+
+
+
+  
+  <section id=contact class="bg-light py-5">
+    <div class="container ">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 >Get In Tauch</h3>
+                <p class="lead" > Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, dolorum!</p>
+                <form action="">
+                    <div class="input-group input-group-lg mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" >
+                                <i class="fa fa-user"></i>
+                            </span>
+                        </div>
+                        <h5 class="card-title">{{ todo.title }}</h5>
+                    </div>
+
+                    <div class="input-group input-group-lg mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" >
+                                <i class="fa fa-user"></i>
+                            </span>
+                        </div>
+                        
+                    </div>
+
+                    <div class="input-group input-group-lg mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" >
+                                <i class="fa fa-user"></i>
+                            </span>
+                        </div>
+                        <textarea  class="form-control" row="5" placeholder="Message">
+                          <label for="description">{{ todo.description }}</label>
+                        </textarea>
+                    </div>
+                    <input type="submit" value="Submit" class="btn btn-primary btn-block btn-lg">
+                    <a href="#" class="btn btn-primary">Edit</a>
+                    <a href="{% url 'todolist:todo' todo.id %}" class="btn btn-info">Show More</a>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+
+</section>
